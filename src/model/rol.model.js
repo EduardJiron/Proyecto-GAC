@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class FacultadModel extends Model {}
+class RolModel extends Model {}
 
-FacultadModel.init(
+RolModel.init(
   {
-    id_facultad: {
+    id_rol: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -18,7 +18,6 @@ FacultadModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     estado: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -26,9 +25,9 @@ FacultadModel.init(
   },
   {
     sequelize,
-    tableName: "facultad",
+    tableName: "rol",
     timestamps: false,
   }
 );
 
-module.exports = FacultadModel;
+module.exports = RolModel;

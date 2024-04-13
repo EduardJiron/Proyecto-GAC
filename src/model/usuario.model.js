@@ -1,34 +1,38 @@
 const { Model, DataTypes } = require("sequelize");
+//conexion
 const sequelize = require("../config/connection");
 
-class FacultadModel extends Model {}
+class UsuarioModel extends Model {}
 
-FacultadModel.init(
+UsuarioModel.init(
   {
-    id_facultad: {
+    id_usuario: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    nombre: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    descripcion: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     estado: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
   {
+    //se llama a la conexion
     sequelize,
-    tableName: "facultad",
+    //debe llamarse igual a la tabla sql server
+    tableName: "Usuario",
+    //se suprimen los campos de tiempo de creacion y edicion
     timestamps: false,
   }
 );
 
-module.exports = FacultadModel;
+// se exporta el modelo
+module.exports = UsuarioModel;

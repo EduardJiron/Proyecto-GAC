@@ -12,7 +12,7 @@ exports.handleResponse=(res,status,body)=>{
   else{
     res.status(status).send({
         status:status,
-        bodys:'not found'
+        body:'No encontrado'
     })
   
   }

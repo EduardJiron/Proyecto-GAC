@@ -1,7 +1,6 @@
 //importo las utilidades
 const { handleResponse } = require("../utilities/funciones");
 
-
 //Este es un Crud Generico, Es capaz de insertar y actualizar cualquier modelo
 //se usa para evitar codigo repetido en los controller
 exports.handleRegistroGenerico = async (res, Model, data, id_params) => {
