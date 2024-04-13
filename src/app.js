@@ -3,8 +3,10 @@ const express=require('express')
 const cors =require('cors')
 const facultadRouter=require('./router/facultad.router')
 const carreraRouter=require('./router/carrera.router')
+const estudianteRouter=require('./router/estudiante.router')
 const usuarioRouter=require('./router/usuario.router')
 const rolRouter = require("./router/rol.router");
+
 const app=express()
 
 
@@ -13,9 +15,12 @@ app.use(cors());
 const uri = "/api/v1/";
 
 //se definen los enrutadores, aqui se deben ir agregando los router creados
-app.use(uri,facultadRouter,carreraRouter,)
+
+app.use(uri,facultadRouter,carreraRouter)
+app.use('/api/v1/estudiante', estudianteRouter)
 app.use('/api/v1/usuario/',usuarioRouter)
 app.use("/api/v1/rol", rolRouter);
+
 
 
 //se define la ruta principal,hasta el momento solo muestra el estado del servidor
