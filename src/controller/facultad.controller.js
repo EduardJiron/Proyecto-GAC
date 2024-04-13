@@ -1,6 +1,6 @@
 const Facultad = require("../model/facultad.model");
-const {handleResponse} = require ("../utilities/funciones")
-const {Op} = require ("sequelize");
+const { handleResponse } = require("../utilities/funciones");
+const { Op } = require("sequelize");
 const { handleRegistroGenerico } = require("./base.controller");
 
 exports.getAllFacultad = async (req, res) => {
@@ -12,24 +12,20 @@ exports.getAllFacultad = async (req, res) => {
   }
 };
 
-  exports.addFacultad = async(req, res) => {
+exports.addFacultad = async (req, res) => {
+  const data = ({ nombre, descripcion } = req.body);
+  data["estado"] = 1;
+  await handleRegistroGenerico(res, Facultad, data);
+};
 
-    const data = ({nombre, descripcion} = req.body)
-    data["estado"] = 1
-    await handleRegistroGenerico (res, Facultad, data)
+exports.updateFacultad = async (req, res) => {
+  const data = ({ nombre, descripcion } = req.body);
+  data["estado"] = 2;
+  await handleRegistroGenerico(res, Facultad, data, req.params.id_facultad);
+};
 
+exports.deleteFacultad = async (req, res) => {
+  const data = { estado: 4 };
 
-  };
-
-  exports.updateFacultad = async (req, res) => {
-    const data = ({ nombre, descripcion} = req.body);
-    data["estado"] = 2;
-    await handleRegistroGenerico(res, Facultad, data, req.params.id_facultad);
-  };
-
-  exports.deleteFacultad = async (req,res) => {
-    const data = {estado : 4} 
-  
-    await handleRegistroGenerico (res, Facultad,data, req.params.id_facultad);
-  };
-
+  await handleRegistroGenerico(res, Facultad, data, req.params.id_facultad);
+};

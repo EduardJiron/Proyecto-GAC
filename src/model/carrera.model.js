@@ -1,12 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 //conexion
-const sequelize=require('../config/connection')
-
+const sequelize = require("../config/connection");
 
 // se crea una clase de tipo modelo
 class CarreraModel extends Model {}
-
-
 
 CarreraModel.init(
   {
@@ -40,9 +37,9 @@ CarreraModel.init(
     //debe llamarse igual a la tabla sql server
     tableName: "carrera",
     //se suprimen los campos de tiempo de creacion y edicion
-    timestamps:false
+    timestamps: false,
   }
 );
 
 // se exporta el modelo
-module.exports=CarreraModel
+module.exports = CarreraModel;

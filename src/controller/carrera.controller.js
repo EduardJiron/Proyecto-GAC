@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 const { handleResponse } = require("../utilities/funciones");
 const { handleRegistroGenerico } = require("./base.controller");
 
-//se obtiene los todos los datos de la carrera 
+//se obtiene los todos los datos de la carrera
 exports.getAllCarrera = async (req, res) => {
   try {
     //En sequelize se usa [op.ne] para referirse al operador diferente de (!==)
@@ -19,12 +19,12 @@ exports.getAllCarrera = async (req, res) => {
 };
 
 // se inserta una carrera a la tabla carrera
-exports.insertCarrera = async (req, res) => {
+exports.addCarrera = async (req, res) => {
   //se extraen los valores del cuerpo de la solicitud (son los valores enviados por el cliente atraves del metodo post )
   const data = ({ nombre, descripcion, id_facultad } = req.body);
-//El estado se inserta al objeto data despues de la respuestas del cliente 
+  //El estado se inserta al objeto data despues de la respuestas del cliente
   data["estado"] = 1;
-  // se llama al registro generico, este se ubica en base.controller ahi voy a explicar el funcionamiento 
+  // se llama al registro generico, este se ubica en base.controller ahi voy a explicar el funcionamiento
   //los parametros de handleRegistroGenerico son : El response,el modelo y el id a modificar o eliminar
   await handleRegistroGenerico(res, Carrera, data);
 };
@@ -35,8 +35,6 @@ exports.updateCarrera = async (req, res) => {
   //el estado ahora es 2 por insertar
   data["estado"] = 2;
   //Se pasa el id del elemento a modificar, para esto se usa el parametro de la url de la solicitud
-   //los parametros de handleRegistroGenerico son : El response,el modelo y el id a modificar o eliminar
+  //los parametros de handleRegistroGenerico son : El response,el modelo y el id a modificar o eliminar
   await handleRegistroGenerico(res, Carrera, data, req.params.id_carrera);
 };
-
-
