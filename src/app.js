@@ -5,6 +5,8 @@ const carreraRouter = require("./router/carrera.router");
 const estudianteRouter = require("./router/estudiante.router");
 const usuarioRouter = require("./router/usuario.router");
 const rolRouter = require("./router/rol.router");
+const evaluacionRouter = require("./router/evaluacion.router");
+
 
 const app = express();
 
@@ -19,6 +21,8 @@ app.use(uri + "carrera", carreraRouter);
 app.use(uri + "estudiante", estudianteRouter);
 app.use(uri + "usuario", usuarioRouter);
 app.use(uri + "rol", rolRouter);
+app.use(uri + "evaluacion", evaluacionRouter)
+
 
 //se define la ruta principal,hasta el momento solo muestra el estado del servidor
 app.get("/", (req, res) => {
