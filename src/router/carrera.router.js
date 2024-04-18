@@ -5,8 +5,10 @@ const carreraController=require('../controller/carrera.controller')
 
 // la uri completa del recurso seria (http:localhost:3001/api/v1/getallcarrera)
 carreraRouter.get('/getallcarrera',carreraController.getAllCarrera)
+carreraRouter.get('/getallcarreraid',carreraController.getAllCarreraId)
 carreraRouter.post('/addCarrera',carreraController.addCarrera)
 carreraRouter.put('/updateCarrera/:id_carrera',carreraController.updateCarrera)
+carreraRouter.delete('/deleteCarrera/:id_carrera',carreraController.deleteCarrera)
 
 // cada instancia express router debe tener, un verbo, una rutay la logica a ejecutar al llamar a la api
 // verbos HTTPS

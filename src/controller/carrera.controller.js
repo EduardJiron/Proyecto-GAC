@@ -1,5 +1,5 @@
 const Carrera = require("../model/carrera.model");
-
+const vwCarrera =require('../model/vwCarrera.model')
 const { Op } = require("sequelize");
 const { handleResponse } = require("../utilities/funciones");
 const { handleRegistroGenerico } = require("./base.controller");
@@ -10,7 +10,19 @@ exports.getAllCarrera = async (req, res) => {
     //En sequelize se usa [op.ne] para referirse al operador diferente de (!==)
     //se usa el diferente de 4 por que el eliminar cambiara el estado a 4 por ende todo dato con estado 4 no se mostrara en el body
     //por ultimo se usa la funcion findall de sequelize para selecionar los datos
-    const body = await Carrera.findAll({ where: { estado: { [Op.ne]: 4 } } });
+    const body = await vwCarrera.findAll({where:{estado:{[Op.ne]:'inactiva'}}});
+    //esto es una utidad generica, ve a utilities funciones ahi estara la fuente
+    handleResponse(res, 200, body);
+  } catch (err) {
+    handleResponse(res, 500, err);
+  }
+};
+exports.getAllCarreraId = async (req, res) => {
+  try {
+    //En sequelize se usa [op.ne] para referirse al operador diferente de (!==)
+    //se usa el diferente de 4 por que el eliminar cambiara el estado a 4 por ende todo dato con estado 4 no se mostrara en el body
+    //por ultimo se usa la funcion findall de sequelize para selecionar los datos
+    const body = await Carrera.findAll();
     //esto es una utidad generica, ve a utilities funciones ahi estara la fuente
     handleResponse(res, 200, body);
   } catch (err) {
@@ -38,3 +50,9 @@ exports.updateCarrera = async (req, res) => {
   //los parametros de handleRegistroGenerico son : El response,el modelo y el id a modificar o eliminar
   await handleRegistroGenerico(res, Carrera, data, req.params.id_carrera);
 };
+exports.deleteCarrera = async (req, res) => {
+  
+  const data = ({estado:4} );
+  await handleRegistroGenerico(res, Carrera, data, req.params.id_carrera);
+};
+
