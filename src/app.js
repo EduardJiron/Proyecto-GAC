@@ -19,6 +19,7 @@ app.use(uri + "carrera", carreraRouter);
 app.use(uri + "estudiante", estudianteRouter);
 app.use(uri + "usuario", usuarioRouter);
 app.use(uri + "rol", rolRouter);
+app.use(uri + "asistencia",asistenciaRouter);
 
 //se define la ruta principal,hasta el momento solo muestra el estado del servidor
 app.get("/", (req, res) => {
