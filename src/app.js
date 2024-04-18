@@ -6,6 +6,11 @@ const estudianteRouter = require("./router/estudiante.router");
 const usuarioRouter = require("./router/usuario.router");
 const rolRouter = require("./router/rol.router");
 const profesorRouter = require("./router/profesor.router");
+const horarioRouter =require("./router/horario.router");
+const evaluacionRouter = require("./router/evaluacion.router");
+const calificacionRouter = require("./router/calificacion.router");
+const claseRouter = require("./router/clase.router");
+
 
 const app = express();
 
@@ -21,6 +26,14 @@ app.use(uri + "estudiante", estudianteRouter);
 app.use(uri + "usuario", usuarioRouter);
 app.use(uri + "rol", rolRouter);
 app.use(uri + "profesor",profesorRouter);
+app.use(uri + "horario", horarioRouter)
+app.use(uri + "evaluacion", evaluacionRouter)
+app.use(uri + "calificacion",calificacionRouter);
+app.use(uri + "asistencia",asistenciaRouter);
+app.use(uri + "clase", claseRouter);
+
+
+
 
 //se define la ruta principal,hasta el momento solo muestra el estado del servidor
 app.get("/", (req, res) => {
