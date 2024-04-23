@@ -57,8 +57,13 @@ ProfesorModel.init({
 {
     //Llamar a la conexión.
     sequelize,
+    modelName: 'Profesor',
     tableName: "Profesor",
     timestamps: false,
   }
+  
 
-);  module.exports = ProfesorModel
+);  
+
+
+module.exports = ProfesorModel

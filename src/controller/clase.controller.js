@@ -1,15 +1,34 @@
-const Clase = require("../model/clase.model");
 
+const { Clase, Profesor_clase, Profesor } = require('../model/profesor_clase');
 const { Op } = require("sequelize");
 const { handleResponse } = require("../utilities/funciones");
 const { handleRegistroGenerico } = require("./base.controller");
+exports.getAllClaseByProfesor = async (req, res) => {
 
-exports.getAllClase = async (req, res) => {
-    try{
-        const body = await Clase.findAll({ where: { estado: { [Op.ne]: 4 } } });
-        handleResponse(res, 200, body);
-    }catch (err) {
-        handleResponse(res, 500, err);
+    const idProfesor = req.session.profesor; 
+    try {
+        const clases = await Clase.findAll({
+            where: { 
+                estado: { [Op.ne]: 4 }, 
+            },
+            include: [{
+                model: Profesor,
+                as: 'Profesores',
+                where: {
+                    id_profesor: idProfesor
+                },
+                through: {
+                    model: Profesor_clase,
+                    as: 'Profesor_clase'
+                },
+                attributes: [] 
+            }]
+        });
+
+        handleResponse(res, 200, clases);
+    } catch (err) {
+        console.error("Error en la consulta Sequelize:", err);
+        handleResponse(res, 500, { error: "Error en la consulta Sequelize", details: err });
     }
 };
 
