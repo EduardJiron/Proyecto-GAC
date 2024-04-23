@@ -1,6 +1,7 @@
 const usuarioRouter =require('express').Router()
 const usuarioController=require('../controller/usuario.controller')
 
+usuarioRouter.post('/login',usuarioController.login)
 usuarioRouter.get('/getallUsuario',usuarioController.getAllUsuario)
 usuarioRouter.post('/addUsuario',usuarioController.addUsuario)
 usuarioRouter.put('/updateUsuario/:id_usuario',usuarioController.updateUsuario)

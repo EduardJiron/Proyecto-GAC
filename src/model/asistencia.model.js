@@ -46,7 +46,7 @@ AsistenciaModel.init(
     {
         //Llamar a la conexión.
         sequelize,
-        tableName: "asistencia",
+        tableName: "asistenciaS",
         timestamps: false
     }
 );

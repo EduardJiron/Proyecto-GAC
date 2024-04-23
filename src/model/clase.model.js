@@ -36,12 +36,14 @@ ClaseModel.init(
         },
     },
     {
-        //Llamar a la conexión.
+       
         sequelize,
+        modelName: 'Clase',
         tableName: "clase",
         timestamps: false
     }
 );
 
-//Se exporta el Modelo.
+
+
 module.exports = ClaseModel
