@@ -10,20 +10,11 @@ HorarioModel.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        hora_inicio: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
-        hora_final: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
-
-        dia: {
+        horario: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-
+    
         estado: {
             type: DataTypes.INTEGER,
             allowNull: false,

@@ -21,13 +21,7 @@ VwClaseProfesor.init({
     nombre_profesor: {
         type: DataTypes.STRING
     },
-    hora_inicio: {
-        type: DataTypes.TIME
-    },
-    hora_final: {
-        type: DataTypes.TIME
-    },
-    dia: {
+     horario: {
         type: DataTypes.STRING
     },
     id_profesor: {
