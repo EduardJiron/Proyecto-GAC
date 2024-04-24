@@ -13,13 +13,13 @@ exports.getAllHorario = async (req, res) => {
 };
 
 exports.addHorario = async (req, res) => {
-    const data = ({ hora_inicio, hora_final, dia } = req.body);
+    const data = ({ horario } = req.body);
     data["estado"] = 1;
     await handleRegistroGenerico(res, Horario, data);
 };
 
 exports.updateHorario = async (req, res) => {
-    const data = ({ hora_inicio, hora_final, dia } = req.body);
+    const data = ({  horario } = req.body);
     data["estado"] = 2;
     await handleRegistroGenerico(res, Horario, data, req.params.id_horario);
 };

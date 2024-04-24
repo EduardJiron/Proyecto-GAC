@@ -1,14 +1,13 @@
 
 const { Clase, Profesor_clase, Profesor } = require('../model/profesor_clase');
+const vwClase = require('../model/vwClase.model');
 const VwClaseProfesor = require('../model/vwClaseProfesor.model');
 const { Op } = require("sequelize");
 const { handleResponse } = require("../utilities/funciones");
 const { handleRegistroGenerico } = require("./base.controller");
 
 exports.getAllClaseByProfesor = async (req, res) => {
-
     const idProfesor = req.params.id_profesor;
-
     try {
         const body = await VwClaseProfesor.findAll({
             where: { id_profesor: idProfesor}
@@ -18,7 +17,16 @@ exports.getAllClaseByProfesor = async (req, res) => {
         handleResponse(res, 500, err);
     }
 
-  
+};
+exports.getAllClase = async (req, res) => {
+    try {
+        const body = await vwClase.findAll(
+            { where: { estado: { [Op.ne]: 4 } } }
+        );
+        handleResponse(res, 200, body);
+    } catch (err) {
+        handleResponse(res, 500, err);
+    }
 };
 
 exports.addClase = async (req, res) => {
