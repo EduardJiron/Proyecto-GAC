@@ -30,12 +30,12 @@ exports.login = async (req, res) => {
       const profesor = await Profesor.findOne({ where: { id_usuario: user.id_usuario } });
       
       req.session.token = token;
+      
       console.log(token);
       req.session.profesor = profesor.id_profesor;
-      req.session.profesor2 = profesor;
-      console.log(req.session.profesor2);
+     console.log(profesor.id_profesor);
 
-      res.status(200).json({ token });
+      res.status(200).json({ token , profesor});
     } else {
       res.status(404).json({ message: "Usuario no encontrado" });
     }
