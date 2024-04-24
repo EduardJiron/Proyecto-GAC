@@ -14,7 +14,8 @@ exports.getAllAsistencia = async (req, res) => {
 };
 
 exports.addAsistencia = async (req, res) => {
-    const data = ({ fecha, asistencia, justificacion, comentario, id_clase, id_estudiante, id_profesor } = req.body);
+    const data = ({ asistencia, justificacion, comentario, id_clase, id_estudiante, id_profesor } = req.body);
+    data['fecha']=new Date();
     data["estado"] = 1;
     await handleRegistroGenerico(res, Asistencia, data);
 };

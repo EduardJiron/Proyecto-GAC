@@ -1,5 +1,5 @@
 const Estudiante = require("../model/estudiante.model");
-
+const VwEstudianteClase = require("../model/vwClaseEstudiante.model");
 const { Op } = require("sequelize");
 const { handleResponse } = require("../utilities/funciones");
 const { handleRegistroGenerico } = require("./base.controller");
@@ -14,6 +14,21 @@ exports.getAllEstudiante = async (req, res) => {
     handleResponse(res, 500, err);
   }
 };
+
+exports.getEstudianteByclase = async (req, res) => {
+const id_clase = req.params.id_clase;
+try{
+  const body = await VwEstudianteClase.findAll(
+    {where:{id_clase:id_clase}}
+  )
+  handleResponse(res,200,body)
+
+}
+catch(err){
+  handleResponse(res,500,err)
+}
+
+}
 
 exports.addEstudiante = async (req, res) => {
   const data = ({
