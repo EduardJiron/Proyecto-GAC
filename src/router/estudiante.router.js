@@ -10,7 +10,7 @@ estudianteRouter.get('/getEstudianteByclase/:id_clase',estudianteController.getE
 estudianteRouter.get('/isInscrito/',estudianteController.isInscrito)
 estudianteRouter.post('/addestudianteinscripcion',estudianteController.addEstudianteInscripcion)
 estudianteRouter.post('/addestudiante',estudianteController.addEstudiante)
-estudianteRouter.put('/updateestudiante/:ids_estudiante',estudianteController.updateEstudiante)
+estudianteRouter.put('/updateestudiante/:id_estudiante',estudianteController.updateEstudiante)
 estudianteRouter.delete('/deleteestudiante/:id_estudiante',estudianteController.deleteEstudiante)
 
 module.exports = estudianteRouter

@@ -12,6 +12,12 @@ ProfesorClase.init(
       primaryKey: true,
       autoIncrement: true
     },
+    id_profesor: {
+      type: DataTypes.INTEGER,
+    },
+    id_clase: {
+      type: DataTypes.INTEGER,
+    },
     
   },
   {

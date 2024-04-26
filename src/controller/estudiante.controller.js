@@ -63,6 +63,8 @@ exports.updateInscripcion = async (req, res) => {
 
 exports.deleteInscripcion = async (req, res) => {
   await Inscripcion.destroy({where:{id_inscripcion:req.params.id_inscripcion}})
+
+  handleResponse(res,200,'Registro eliminado')
 }
 
 
@@ -130,6 +132,7 @@ exports.updateEstudiante = async (req, res) => {
     id_usuario,
   } = req.body);
   data["estado"] = 2;
+  
   await handleRegistroGenerico(res, Estudiante, data, req.params.id_estudiante);
 };
 
