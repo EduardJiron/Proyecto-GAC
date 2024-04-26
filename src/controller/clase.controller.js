@@ -30,13 +30,13 @@ exports.getAllClase = async (req, res) => {
 };
 
 exports.addClase = async (req, res) => {
-    const data = ({ nombre, descripcion, cod_clase, id_horario, periodo_academico } = req.body);
+    const data = ({ nombre, descripcion, cod_clase, id_periodo,id_carrera } = req.body);
     data["estado"] = 1;
     await handleRegistroGenerico(res, Clase, data);
 };
 
 exports.updateClase = async (req, res) => {
-    const data = ({ nombre, descripcion, cod_clase, id_horario, periodo_academico } = req.body);
+    const data = ({  nombre, descripcion, cod_clase, id_periodo,id_carrera  } = req.body);
     data["estado"] = 2;
     await handleRegistroGenerico(res, Clase, data, req.params.id_clase);
 };

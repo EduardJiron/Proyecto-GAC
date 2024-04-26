@@ -19,6 +19,9 @@ vwClase.init(
         cod_clase: {
         type: DataTypes.STRING,
         },
+        carrera: {
+        type: DataTypes.STRING,
+        },
         horario: {
         type: DataTypes.STRING,
         },

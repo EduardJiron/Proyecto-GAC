@@ -48,14 +48,7 @@ EstudianteModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    id_carrera: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    id_usuario: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+  
   },
   {
     //Llamar a la conexión.

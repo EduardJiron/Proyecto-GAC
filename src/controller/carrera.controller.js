@@ -7,11 +7,9 @@ const { handleRegistroGenerico } = require("./base.controller");
 //se obtiene los todos los datos de la carrera
 exports.getAllCarrera = async (req, res) => {
   try {
-    //En sequelize se usa [op.ne] para referirse al operador diferente de (!==)
-    //se usa el diferente de 4 por que el eliminar cambiara el estado a 4 por ende todo dato con estado 4 no se mostrara en el body
-    //por ultimo se usa la funcion findall de sequelize para selecionar los datos
-    const body = await vwCarrera.findAll({where:{estado:{[Op.ne]:'inactiva'}}});
-    //esto es una utidad generica, ve a utilities funciones ahi estara la fuente
+   
+    const body = await vwCarrera.findAll({where:{estado:{[Op.ne]:4}}});
+   
     handleResponse(res, 200, body);
   } catch (err) {
     handleResponse(res, 500, err);
@@ -19,11 +17,9 @@ exports.getAllCarrera = async (req, res) => {
 };
 exports.getAllCarreraId = async (req, res) => {
   try {
-    //En sequelize se usa [op.ne] para referirse al operador diferente de (!==)
-    //se usa el diferente de 4 por que el eliminar cambiara el estado a 4 por ende todo dato con estado 4 no se mostrara en el body
-    //por ultimo se usa la funcion findall de sequelize para selecionar los datos
+    
     const body = await Carrera.findAll();
-    //esto es una utidad generica, ve a utilities funciones ahi estara la fuente
+   
     handleResponse(res, 200, body);
   } catch (err) {
     handleResponse(res, 500, err);

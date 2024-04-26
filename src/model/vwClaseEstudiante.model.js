@@ -1,10 +1,4 @@
-/*
 
-SELECT TOP (1000) [nombre]
-      ,[id_estudiante]
-  FROM [gac].[dbo].[VwEstudianteClase]
-
-*/
 
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");

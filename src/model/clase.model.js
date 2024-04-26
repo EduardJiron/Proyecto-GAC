@@ -26,11 +26,15 @@ ClaseModel.init(
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        id_horario: {
+        id_carrera: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        periodo_academico: {
+        id_periodo: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        id_horario: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },

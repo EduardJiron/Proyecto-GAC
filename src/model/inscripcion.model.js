@@ -1,44 +1,42 @@
+
 const {Model, DataTypes } = require("sequelize");
 const sequelize = require ('../config/connection');
 
-class AsistenciaModel extends Model {}
+class InscripcionModel extends Model {}
 
-AsistenciaModel.init(
+InscripcionModel.init(
     {
-        id_asistencia: {
+        id_inscripcion: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        fecha: {
+        fecha_inscripcion: {
             type: DataTypes.DATE,
-            allowNull: false,           
-        },
-        asistencia: {
-            type: DataTypes.INTEGER,
             allowNull: false,
         },
-        comentario: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-        id_clase: {
+        estado: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
         id_estudiante: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        }
-        
+        },
+        id_clase: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        id_periodo: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     },
     {
-        //Llamar a la conexión.
         sequelize,
-        tableName: "asistencia",
+        modelName: 'Inscripcion',
+        tableName: "inscripcion",
         timestamps: false
     }
 );
-
-//Se exporta el Modelo.
-module.exports = AsistenciaModel
+module.exports = InscripcionModel;

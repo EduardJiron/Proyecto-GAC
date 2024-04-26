@@ -12,6 +12,10 @@ ProfesorModel.init({
         primaryKey: true,
         autoIncrement: true,
       },
+      especialidad: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       estado: {
         type: DataTypes.INTEGER,
         allowNull: false,

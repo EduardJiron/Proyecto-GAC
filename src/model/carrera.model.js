@@ -13,6 +13,7 @@ CarreraModel.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
     nombre: {
       type: DataTypes.STRING,
       //indica si es posible usar null, en ese caso no se puede usar null

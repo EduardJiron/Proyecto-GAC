@@ -29,11 +29,6 @@ EvaluacionModel.init(
             allowNull: false,
         },
 
-        id_profesor: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-
         id_estudiante: {
             type: DataTypes.INTEGER,
             allowNull: false,

@@ -5,7 +5,7 @@ class periodo_academicoModel extends Model {}
 
 periodo_academicoModel.init(
   {
-    periodo_academico: {
+    id_periodo: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -30,7 +30,7 @@ periodo_academicoModel.init(
   },
   {
     sequelize,
-    tableName: "periodo_academico",
+    tableName: "periodo",
     timestamps: false,
   }
 );
