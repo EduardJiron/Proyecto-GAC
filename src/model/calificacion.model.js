@@ -19,15 +19,15 @@ CalificacionModel.init({
         type:DataTypes.DATE,
         allowNull:false,
       },
-      resultado:{
-        type:DataTypes.INTEGER,
-        allowNull:false,
-      },
       id_clase:{
         type:DataTypes.INTEGER,
         allowNull:false,
       },
       id_estudiante:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+      }
+      ,id_periodo:{
         type:DataTypes.INTEGER,
         allowNull:false
       }

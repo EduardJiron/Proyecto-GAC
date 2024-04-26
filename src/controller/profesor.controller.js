@@ -1,5 +1,7 @@
 const Profesor = require("../model/profesor.model");
 const { handleResponse } = require("../utilities/funciones");
+const Profesor_clase = require("../model/profesor_clase.model");
+const vwProfesorClaseModel = require("../model/vwProfesorClase.model");
 const { Op } = require("sequelize");
 const { handleRegistroGenerico } = require("./base.controller");
 
@@ -12,6 +14,37 @@ exports.getAllProfesor = async (req, res) => {
         handleResponse(res, 500, err);
       }
 }
+
+exports.getProfesorClase = async (req, res) => {
+    try {
+        const body = await vwProfesorClaseModel.findAll();
+        handleResponse(res, 200, body);
+      } catch (err) {
+        handleResponse(res, 500, err);
+      }
+}
+exports.addProfesorClase = async (req, res) => {
+    try {
+        const body = await Profesor_clase.create(req.body);
+        handleResponse(res, 200, body);
+      } catch (err) {
+        handleResponse(res, 500, err);
+      }
+}
+
+exports.deleteProfesorClase = async (req, res) => {
+    try {
+        const body = await Profesor_clase.destroy({
+            where: { id_profesor_clase: req.params.id_clase },
+          });
+        handleResponse(res, 200, 'Registro eliminado');
+      } catch (err) {
+        handleResponse(res, 500, err);
+      }
+}
+
+
+
 
 exports.addProfesor = async (req, res)=> {
     const data = ({ 

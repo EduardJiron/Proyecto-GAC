@@ -12,6 +12,10 @@ vwClaseEstudiante.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    apellido: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     id_estudiante: {
       type: DataTypes.INTEGER,
       primaryKey: true,
