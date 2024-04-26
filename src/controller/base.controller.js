@@ -22,6 +22,6 @@ exports.handleRegistroGenerico = async (res, Model, data, id_params) => {
       handleResponse(res, 201, "creado con exito");
     }
   } catch (err) {
-    handleResponse(res, 500, "Error al procesar la solicitud");
+    handleResponse(res, 500, err);
   }
 };
